@@ -1,0 +1,51 @@
+
+tests:
+  - name: make a item
+    url: /items
+    method: POST
+    request_headers:
+      content-type: application/json
+    data:
+      name: item1
+    status: 201
+    response_json_paths:
+      $.name: item1
+
+  - name: make another item
+    url: $URL
+    method: POST
+    request_headers:
+      content-type: application/json
+    data:
+      name: item2
+    status: 201
+    response_json_paths:
+      $.name: item2
+
+  - name: get a item
+    url: /items?item_id=$RESPONSE['$.id']
+    response_json_paths:
+      $.name: item2
+
+  - name: try to make same item
+    url: /items
+    method: POST
+    request_headers:
+      content-type: application/json
+    data:
+      name: item1
+    status: 409
+
+  - name: delete item
+    url: /items?item_id=$HISTORY['make a item'].$RESPONSE['$.id']
+    method: DELETE
+    status: 204
+
+  - name: delete other item
+    url: /items?item_id=$HISTORY['make another item'].$RESPONSE['$.id']
+    method: DELETE
+    status: 204
+
+  - name: can not get deleted item
+    url: /items?item_id=$HISTORY['make a item'].$RESPONSE['$.id']
+    status: 404

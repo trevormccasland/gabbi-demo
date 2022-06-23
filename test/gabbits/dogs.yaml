@@ -1,0 +1,7 @@
+tests:
+  - name: get dogs
+    url: /dogs
+    response_json_paths:
+      $.`len`: 172
+      $.[0].name: Affenpinscher
+      $[?bred_for = 'Sled pulling'].name: ['Alaskan Husky', 'Chinook', 'Siberian Husky']
