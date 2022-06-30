@@ -1,0 +1,23 @@
+{
+    "weight": {
+        "imperial": "4 - 7",
+        "metric": "2 - 3"
+    },
+    "height": {
+        "imperial": "8 - 9",
+        "metric": "20 - 23"
+    },
+    "id": 264,
+    "name": "Yorkshire Terrier",
+    "bred_for": "Small vermin hunting",
+    "breed_group": "Toy",
+    "life_span": "12 - 16 years",
+    "temperament": "Bold, Independent, Confident, Intelligent, Courageous",
+    "reference_image_id": "B12BnxcVQ",
+    "image": {
+        "id": "B12BnxcVQ",
+        "width": 1024,
+        "height": 683,
+        "url": "https://cdn2.thedogapi.com/images/B12BnxcVQ.jpg"
+    }
+}

@@ -5,3 +5,13 @@ tests:
       $.`len`: 172
       $.[0].name: Affenpinscher
       $[?bred_for = 'Sled pulling'].name: ['Alaskan Husky', 'Chinook', 'Siberian Husky']
+
+  - name: yorkshire in dogs
+    url: /dogs
+    response_json_paths:
+      $[?name = 'Yorkshire Terrier']: <@yorkshire.json
+
+  - name: yorkshire in dogs yaml
+    url: /dogs
+    response_json_paths:
+      $[?name = 'Yorkshire Terrier']: <@dogs/yorkshire.yaml
