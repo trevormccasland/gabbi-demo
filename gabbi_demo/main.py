@@ -4,7 +4,7 @@ import sys
 from typing import List
 import uuid
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Response
 from fastapi.middleware import Middleware
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
@@ -64,6 +64,7 @@ def delete_item(item_id: uuid.UUID):
         if items[i].id == item_id:
             del items[i]
             break
+    return Response(status_code=204)
 
 @app.get("/dogs")
 def get_dogs():
